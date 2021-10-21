@@ -39,8 +39,8 @@
             alt="Foto pessoal do Bryan Dietrich Bernhardt"
           />
         </div>
-        <h1>Bryan Dietrich Bernhardt</h1>
-        <a href="https://instagram.com/baiaaam">
+        <h1 id="name"></h1>
+        <a href="https://github.com/BryanDietrichBernhardt/" target="_blank">
           <img src="/images/github.svg" alt="Ícone do GitHub" />
           BryanDBernhardt
         </a>
@@ -48,12 +48,9 @@
           Um estudante de Análise e Desenvolvimento de Sistemas com foco no
           desenvolvimento WEB
         </p>
-        <ul>
-          <li>
-            <a
-              href="https://www.youtube.com/channel/UCCIrOTontmDRUhHoglS_GsA"
-              target="_blank"
-            >
+        <ul id="socialLinks">
+          <li class="youtube">
+            <a href="" target="_blank">
               <img
                 class="social-media"
                 src="/images/youtube.svg"
@@ -61,11 +58,8 @@
               />
             </a>
           </li>
-          <li>
-            <a
-              href="https://pt-br.facebook.com/bryan.dietrichbernhardt/about"
-              target="_blank"
-            >
+          <li class="facebook">
+            <a href="" target="_blank">
               <img
                 class="social-media"
                 src="/images/facebook.svg"
@@ -73,8 +67,8 @@
               />
             </a>
           </li>
-          <li>
-            <a href="https://www.instagram.com/baiaaam/" target="_blank">
+          <li class="instagram">
+            <a href="" target="_blank">
               <img
                 class="social-media"
                 src="/images/instagram.svg"
@@ -82,11 +76,8 @@
               />
             </a>
           </li>
-          <li>
-            <a
-              href="https://www.linkedin.com/in/bryandbernhardt/"
-              target="_blank"
-            >
+          <li class="linkedin">
+            <a href="" target="_blank">
               <img
                 class="social-media"
                 src="/images/linkedin.png"
@@ -97,5 +88,30 @@
         </ul>
       </div>
     </main>
+
+    <script>
+      const infos = {
+        name: 'Bryan Dietrich Bernhardt',
+        github: 'BryanDietrichBernhardt',
+        youtube: 'channel/UCCIrOTontmDRUhHoglS_GsA',
+        facebook: 'bryan.dietrichbernhardt/about',
+        instagram: 'baiaaam',
+        linkedin: 'in/bryandbernhardt'
+      }
+      function changeSocialMediaLinks() {
+        document.getElementById('name').textContent = infos.name
+        //para ID podemos escrever:
+        //name.textContent = infos.name
+
+        //percorre todos os "filhos" da ul (percorre todos os li)
+        for (let li of socialLinks.children) {
+          const social = li.getAttribute('class')
+          li.children[0].href = `http://${social}.com/${infos[social]}`
+        }
+      }
+      changeSocialMediaLinks()
+    </script>
   </body>
 </html>
+
+<!-- Desafio 3 código = #ImaginarConstruirTransformar-->
